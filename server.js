@@ -41,5 +41,6 @@ var wss = new WebSocketServer({server: server});
 
 wss.on('connection', function(ws) {
   var stream = websocket(ws);
-  fs.createReadStream('./snd/hello.mp4').pipe(stream);
+  console.log("bufferSize");
+  fs.createReadStream('./snd/hello.mp4', {bufferSize: 2*1024}).pipe(stream);
 });
